@@ -38,7 +38,7 @@ class MyAppState extends State<MyApp> {
 
     _expression = _expression.replaceAll('÷', '/');
     _expression = _expression.replaceAll('×', '*');
-
+    _expression = _expression.replaceAll('±', '-');
     Parser p = Parser();
     Expression exp = p.parse(_expression);
 
