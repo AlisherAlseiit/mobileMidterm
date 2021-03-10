@@ -36,9 +36,13 @@ class MyAppState extends State<MyApp> {
 
   void evaluateNumbers(String text){
 
+    _expression = _expression.replaceAll('÷', '/');
+    _expression = _expression.replaceAll('×', '*');
+
     Parser p = Parser();
     Expression exp = p.parse(_expression);
 
+    
     ContextModel cm = ContextModel();
     double eval = exp.evaluate(EvaluationType.REAL, cm);
 
@@ -92,7 +96,7 @@ class MyAppState extends State<MyApp> {
                   callback: numThatWasClicked,
                 ),
                 CalculatorButton(
-                  text: '/',
+                  text: '÷',
                   fillColor: 0xFFFF8F00,
                   callback: numThatWasClicked,
                 ),
@@ -117,7 +121,7 @@ class MyAppState extends State<MyApp> {
                   callback: numThatWasClicked,
                 ),
                 CalculatorButton(
-                  text: '*',
+                  text: '×',
                   fillColor: 0xFFFF8F00,
                   callback: numThatWasClicked,
                 ),
